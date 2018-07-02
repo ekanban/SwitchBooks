@@ -1,0 +1,44 @@
+<% include ../partials/header %>
+
+<h2><%= book.title %></h2>
+<h4><%= book.author %></h4>
+<img src="<%= book.image %>" alt="">
+<p><%= book.summary %></p>
+<p><em>Submitted by <a href="/users/<%= book.submitter.id %>"><%= book.submitter.username %></a></em></p>
+
+<% if(currentUser && !book.submitter.id.equals(currentUser._id)){ %>
+  <form class="form-delete" action="/users/<%= book.submitter.id %>/switchbooks/<%= book._id %>" method="post">
+    <input type="submit" class="ui button blue mini" value="Switch Books">
+  </form>
+<% } %>
+
+
+<% if(currentUser && book.submitter.id.equals(currentUser._id)){ %>
+  <a class="ui button mini orange" href="/books/<%= book._id %>/edit">Edit</a>
+  <form class="form-delete" action="/books/<%= book._id %>/?_method=DELETE" method="post">
+    <input type="submit" class="ui button red mini" value="Delete">
+  </form>
+<% } %>
+<br>
+<br>
+
+<a href="/books/<%= book._id %>/comments/new">Add a new comment</a>
+<br>
+<br>
+<br>
+<br>
+<% for(var i=0; i<book.comments.length; i++){ %>
+  <p><strong><%= book.comments[i].author.username %></strong></p>
+  <!-- <p><strong><%= book.comments[i].author.salt %></strong></p> -->
+
+  <p><%= book.comments[i].text %></p>
+  <% if(currentUser && book.comments[i].author.id.equals(currentUser._id)){ %>
+    <a class="ui button mini orange" href="/books/<%= book._id %>/comments/<%= book.comments[i]._id %>/edit">Edit</a>
+    <form class="form-delete" action="/books/<%= book._id %>/comments/<%= book.comments[i]._id %>?_method=DELETE" method="post">
+      <input type="submit" class="ui button mini red" value="Delete">
+    </form>
+  <% } %>
+    <br>
+<% } %>
+
+<% include ../partials/footer %>

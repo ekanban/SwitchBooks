@@ -1,0 +1,7 @@
+<% include ../partials/header %>
+
+<h1>Sent Deals</h1>
+
+<% for(var i=0; i<user.dealsSent.length; i++) { %>
+  <h3>Offered <a href="/books/<%= user.dealsSent[i].offeredBook.id %>"><%= user.dealsSent[i].offeredBook.title %></a> in exchange of <a href="/books/<%= user.dealsSent[i].askedBook.id %>"><%= user.dealsSent[i].askedBook.title %></a> from <a href="/users/<%= user.dealsSent[i].sentToPerson.id %>"><%= user.dealsSent[i].sentToPerson.username %></a></h3>
+<% } %>

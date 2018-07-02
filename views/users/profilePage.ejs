@@ -1,0 +1,12 @@
+<% include ../partials/header %>
+
+<h1><%= user.username %></h1>
+
+<% for(var i=0; i<user.books.length; i++){ %>
+  <h2><%= user.books[i].title %></h2>
+  <h4><%= user.books[i].author %></h4>
+  <img src="<%= user.books[i].image %>" alt="">
+  <p><%= user.books[i].summary.substring(0, 100) %>...</p>
+
+  <a href="/books/<%= user.books[i]._id %>">Read More</a>
+<% } %>

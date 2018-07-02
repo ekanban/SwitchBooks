@@ -1,0 +1,12 @@
+<% include ../partials/header %>
+
+<h1>You are switching <%= book.title %> from <%= user.username %></h1>
+
+<% for(var i=0; i<currentuser.books.length; i++){ %>
+  <h2><%= currentuser.books[i].title %></h2>
+  <h4><%= currentuser.books[i].author %></h4>
+  <img src="<%= currentuser.books[i].image %>" alt="">
+
+
+  <a class="ui button mini green" href="/users/<%= user._id %>/switchbooks/<%=book._id %>/<%= currentuser.books[i]._id %>/confirm">Confirm</a>
+<% } %>
