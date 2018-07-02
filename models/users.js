@@ -33,6 +33,10 @@ var userSchema = new mongoose.Schema({
           ref: "Book"
         },
         title: String
+    },
+    accept: {
+      type: String,
+      default: "no"
     }
   }
   ],
@@ -58,6 +62,10 @@ var userSchema = new mongoose.Schema({
           ref: "Book"
         },
         title: String
+    },
+    accept: {
+      type: String,
+      default: "no"
     }
     }
   ]

@@ -136,4 +136,26 @@ router.get("/users/:userId/receivedDeals", function(req, res){
   })
 })
 
+//ACCEPT RECEIVED DEAL
+router.get("/users/receivedDeals/:receivedDealId", function(req, res){
+  User.findById(req.user._id, function(err, userWhoReceivedDeal){
+    for(var i=0; i<userWhoReceivedDeal.dealsReceived.length; i++){
+      if(userWhoReceivedDeal.dealsReceived[i]._id == req.params.receivedDealId){
+        userWhoReceivedDeal.dealsReceived[i].accept = "yes";
+        User.findById(userWhoReceivedDeal.dealsReceived[i].receivedFromPerson.id, function(err, userWhoSentDeal){
+          for(var j=0; j<userWhoSentDeal.dealsSent.length; j++){
+            if(userWhoSentDeal.dealsSent[j].askedBook.id.equals(userWhoReceivedDeal.dealsReceived[i].askedBook.id)){
+              userWhoSentDeal.dealsSent[j].accept = "yes";
+              userWhoSentDeal.save();
+              break;
+            }
+          }
+        })
+      }
+       userWhoReceivedDeal.save();
+       break;
+    }
+    res.redirect(`/users/${req.user._id}/receivedDeals`);
+  })
+})
 module.exports = router;
