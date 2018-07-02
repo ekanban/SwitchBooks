@@ -36,7 +36,7 @@ var userSchema = new mongoose.Schema({
     },
     accept: {
       type: String,
-      default: "no"
+      default: "waiting"
     }
   }
   ],
@@ -65,7 +65,7 @@ var userSchema = new mongoose.Schema({
     },
     accept: {
       type: String,
-      default: "no"
+      default: "waiting"
     }
     }
   ]
