@@ -25,7 +25,7 @@ router.post("/register", function(req, res){
       res.redirect("/register");
     } else{
       passport.authenticate("local")(req, res, function(){
-        req.flash("success", "Welcome to SwitchBooks, " + user.username);
+        req.flash("success", "Welcome to SwitchBooks, " + user.username + "!");
         res.redirect("/books");
       })
     }
