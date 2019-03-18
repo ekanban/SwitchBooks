@@ -1,7 +1,20 @@
 <% include ../partials/header %>
 
-<h1>Sent Deals</h1>
+<h1 style="text-align: center">Sent Deals</h1>
 
-<% for(var i=0; i<user.dealsSent.length; i++) { %>
-  <h3>Offered <a href="/books/<%= user.dealsSent[i].offeredBook.id %>"><%= user.dealsSent[i].offeredBook.title %></a> in exchange of <a href="/books/<%= user.dealsSent[i].askedBook.id %>"><%= user.dealsSent[i].askedBook.title %></a> from <a href="/users/<%= user.dealsSent[i].sentToPerson.id %>"><%= user.dealsSent[i].sentToPerson.username %></a></h3>
-<% } %>
+<div class="ui center aligned main text container segment">
+    <% if(user.dealsSent.length == 0) { %>
+      <h3>You haven't sent any switch requests yet.</h3>
+    <% } %>
+
+    <% for(var i=0; i<user.dealsSent.length; i++) { %>
+      <div class="ui segment">
+          <h3>Offered <a href="/books/<%= user.dealsSent[i].offeredBook.id %>"><%= user.dealsSent[i].offeredBook.title %></a> in exchange of <a href="/books/<%= user.dealsSent[i].askedBook.id %>"><%= user.dealsSent[i].askedBook.title %></a> from <a href="/users/<%= user.dealsSent[i].sentToPerson.id %>"><%= user.dealsSent[i].sentToPerson.username %></a></h3>
+
+      </div>
+    <% } %>
+    
+</div>
+
+
+

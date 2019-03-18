@@ -98,13 +98,13 @@ router.get("/users/:userId/switchbooks/:bookId/:offeredBookId/confirm", middlewa
                     var transporter = nodemailer.createTransport({
                       service: 'gmail',
                       auth: {
-                        user: 'iec2017016@iiita.ac.in',
-                        pass: 'bans7877'
+                        user: 'switchbooks101@gmail.com',
+                        pass: '$witch10@'
                       }
                     });
 
                     var mailOptions = {
-                      from: 'iec2017016@iiita.ac.in',
+                      from: 'switchbooks101@gmail.com',
                       to: user.email,
                       subject: 'Switch request',
                       text: `${req.user.username} sent you a switch request for ${askedBook.title}! He's willing to offer ${offeredBook.title} in return. Visit: https://www.google.com`

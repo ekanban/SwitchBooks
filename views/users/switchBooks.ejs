@@ -1,12 +1,26 @@
 <% include ../partials/header %>
 
-<h1>You are switching <%= book.title %> from <%= user.username %></h1>
+<div class="ui center aligned main text container segment">
 
-<% for(var i=0; i<currentuser.books.length; i++){ %>
-  <h2><%= currentuser.books[i].title %></h2>
-  <h4><%= currentuser.books[i].author %></h4>
-  <img src="<%= currentuser.books[i].image %>" alt="">
+    <h1>You are switching <%= book.title %> from <%= user.username %></h1>
 
+    <h3>Which book of yours would you like to offer in return?</h3>
 
-  <a class="ui button mini green" href="/users/<%= user._id %>/switchbooks/<%=book._id %>/<%= currentuser.books[i]._id %>/confirm">Confirm</a>
-<% } %>
+    
+    <% for(var i=0; i<currentuser.books.length; i++){ %>
+        <div class="ui segment">
+            <h2><%= currentuser.books[i].title %></h2>
+            <h4>by <%= currentuser.books[i].author %></h4>
+            <img class="ui medium centered image" src="<%= currentuser.books[i].image %>" alt="">
+          
+
+                    <div style="margin-top: 20px">
+                        <a class="ui button mini green" href="/users/<%= user._id %>/switchbooks/<%=book._id %>/<%= currentuser.books[i]._id %>/confirm">Confirm</a>
+                      </div>
+                    
+          </div>
+      
+    <% } %>
+    
+</div>
+
