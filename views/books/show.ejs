@@ -1,44 +1,76 @@
 <% include ../partials/header %>
 
-<h2><%= book.title %></h2>
-<h4><%= book.author %></h4>
-<img src="<%= book.image %>" alt="">
-<p><%= book.summary %></p>
-<p><em>Submitted by <a href="/users/<%= book.submitter.id %>"><%= book.submitter.username %></a></em></p>
-
-<% if(currentUser && !book.submitter.id.equals(currentUser._id)){ %>
-  <form class="form-delete" action="/users/<%= book.submitter.id %>/switchbooks/<%= book._id %>" method="post">
-    <input type="submit" class="ui button blue mini" value="Switch Books">
-  </form>
-<% } %>
-
-
-<% if(currentUser && book.submitter.id.equals(currentUser._id)){ %>
-  <a class="ui button mini orange" href="/books/<%= book._id %>/edit">Edit</a>
-  <form class="form-delete" action="/books/<%= book._id %>/?_method=DELETE" method="post">
-    <input type="submit" class="ui button red mini" value="Delete">
-  </form>
-<% } %>
-<br>
-<br>
-
-<a href="/books/<%= book._id %>/comments/new">Add a new comment</a>
-<br>
-<br>
-<br>
-<br>
-<% for(var i=0; i<book.comments.length; i++){ %>
-  <p><strong><%= book.comments[i].author.username %></strong></p>
-  <!-- <p><strong><%= book.comments[i].author.salt %></strong></p> -->
-
-  <p><%= book.comments[i].text %></p>
-  <% if(currentUser && book.comments[i].author.id.equals(currentUser._id)){ %>
-    <a class="ui button mini orange" href="/books/<%= book._id %>/comments/<%= book.comments[i]._id %>/edit">Edit</a>
-    <form class="form-delete" action="/books/<%= book._id %>/comments/<%= book.comments[i]._id %>?_method=DELETE" method="post">
-      <input type="submit" class="ui button mini red" value="Delete">
+<div class="ui center aligned main text container segment">
+  <!-- <div class="ui  container segment"> -->
+    <div class="ui huge header"><%= book.title %></div>
+    <div class="ui top attached segment">
+      <div class="item">
+        <img class="ui centered medium rounded image" src="<%= book.image %>">
+      </div>
+    </div>
+    <p><%= book.summary %></p>
+    <h4>Authored by: <%= book.author %></h4>
+    <p><em>Submitted by <a href="/users/<%= book.submitter.id %>"><%= book.submitter.username %></a></em></p>
+  <!-- </div> -->
+  <% if(!currentUser) { %>
+    <a href="/register">Sign Up</a> or <a href="/login">Login</a> to switch this book with one of yours.
+  <% } %>
+  <% if(currentUser && !book.submitter.id.equals(currentUser._id)){ %>
+    <form class="form-delete" action="/users/<%= book.submitter.id %>/switchbooks/<%= book._id %>" method="post">
+      <input type="submit" class="ui button blue mini" value="Switch Books">
     </form>
   <% } %>
-    <br>
-<% } %>
+  
+  
+  <% if(currentUser && book.submitter.id.equals(currentUser._id)){ %>
+    <a class="ui button mini orange" href="/books/<%= book._id %>/edit">Edit</a>
+    <form class="form-delete" action="/books/<%= book._id %>/?_method=DELETE" method="post">
+      <input type="submit" class="ui button red mini" value="Delete">
+    </form>
+  <% } %>
+</div>
 
+
+<br>
+<br>
+
+<div class="ui main text container segment">
+    <div class="ui comments">
+      <h3 class="ui dividing header">Comments</h3>
+      <% for(var i=0; i<book.comments.length; i++){ %>
+          <div class="comment">
+              <a class="avatar">
+                <img src="/images/avatar/small/matt.jpg">
+              </a>
+              <div class="content">
+                <a class="author"><%= book.comments[i].author.username %></a>
+                <div class="metadata">
+                  <span class="date">Today at 5:42PM</span>
+                </div>
+                <div class="text">
+                  <%= book.comments[i].text %>
+                </div>
+                <% if(currentUser && book.comments[i].author.id.equals(currentUser._id)){ %>
+                  <a class="ui vertical animated mini orange button" tabindex="0" href="/books/<%= book._id %>/comments/<%= book.comments[i]._id %>/edit">
+                    <div class="hidden content">Edit</div>
+                    <div class="visible content">
+                      <i class="edit icon"></i>
+                    </div>
+                  </a>
+                  <form class="form-delete" action="/books/<%= book._id %>/comments/<%= book.comments[i]._id %>?_method=DELETE" method="post">
+                    <input type="submit" class="ui button mini red" value="Delete">
+                  </form>
+                <% } %>
+  
+              </div>
+            
+            </div>        
+      <% } %>
+    </div>
+    <a class="ui blue button" href="/books/<%= book._id %>/comments/new">Add a new comment</a>
+</div>
+
+
+
+    
 <% include ../partials/footer %>

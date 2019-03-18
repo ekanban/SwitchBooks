@@ -1,14 +1,30 @@
 <% include ../partials/header %>
 
-<h1>Here are the books</h1>
+<h1 style="text-align: center">Books Available For Switching</h1>
 
+<div class="ui link cards">
 <% for(var i=0; i<books.length; i++){ %>
-  <h2><%= books[i].title %></h2>
-  <h4><%= books[i].author %></h4>
-  <img src="<%= books[i].image %>" alt="">
-  <p><%= books[i].summary.substring(0, 100) %>...</p>
-
-  <a href="/books/<%= books[i]._id %>">Read More</a>
+  <div class="ui card">
+    <div class="image">
+      <img src="<%= books[i].image %>">
+    </div>
+    <div class="content">
+      <a class="header"><%= books[i].title %></a>
+      <!-- <div class="meta">
+        <span class="date">Joined in 2013</span>
+      </div> -->
+      <div class="description">
+        <%= books[i].summary.substring(0, 100) %>
+        <a class="ui button" href="/books/<%= books[i]._id %>">Read More</a>
+      </div>
+    </div>
+    <div class="extra content">
+        <i class="user icon"></i>
+        <%= books[i].author %>
+    </div>
+  </div>
 <% } %>
+</div>
+
 
 <% include ../partials/footer %>
