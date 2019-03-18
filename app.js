@@ -13,8 +13,8 @@ var commentRoutes = require("./routes/comments.js");
 var indexRoutes = require("./routes/index.js");
 var usersRoutes = require("./routes/users.js");
 
-mongoose.connect("mongodb://localhost/switchbooks");
-// mongoose.connect("mongodb://acebansal:barter10@ds153890.mlab.com:53890/barter");
+// mongoose.connect("mongodb://localhost/switchbooks");
+mongoose.connect("mongodb://acebansal:barter10@ds153890.mlab.com:53890/barter");
 
 
 var Book = require("./models/books.js");
@@ -64,7 +64,7 @@ function isLoggedIn(req, res, next){
 
 
 
-// app.listen(process.env.PORT, process.env.IP);
-app.listen(3000, function(){
-  console.log("The server has started")
-})
+app.listen(process.env.PORT, process.env.IP);
+// app.listen(3000, function(){
+//   console.log("The server has started")
+// })
