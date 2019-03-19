@@ -5,7 +5,7 @@ SwitchBooks is an app that enables you to exchange your used books for someone e
 
 You may view all the books that have been added by other users. But to add a book of your own, you need to signup to use the service. After signing up, you may add your own books and comment on other people's books. You may edit/delete the books or comments that you've added. If you find a book that you'd like to exchange for one of yours, simply send that person a switch request. Please note that you need to have added atleast one book of yours to send a switch request to other users.
 
-You may view the requests that you've sent or recieved in the navbar while you're logged in.
+You may view the requests that you've sent or recieved in the navbar while you're logged in. Whenever a user sends you a switch request for one of your books, you recieve an e-mail notifying you of the request.
 
 ## How to run SwitchBooks locally?
 
