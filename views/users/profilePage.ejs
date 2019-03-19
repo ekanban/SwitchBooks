@@ -1,35 +1,44 @@
 <% include ../partials/header %>
 
-<h1 style="text-align:center">Welcome to <%= user.username %>'s profile page!</h1>
+<h1  style="text-align: center; margin: 4% auto; font-size: 50px">Welcome to <%= user.username %>'s profile page!</h1>
 
-<div style="width: 67%; text-align: center" class="ui container segment">
-  <div style="margin: 0 auto">
-    <div class="ui link cards">
-      <% for(var i=0; i<user.books.length; i++){ %>
-        <div class="ui card" style="cursor:default">
-          <div class="image">
-            <img src="<%= user.books[i].image %>">
-          </div>
-          <div class="content">
-            <a class="header" href="/books/<%= user.books[i]._id %>"><%= user.books[i].title %></a>
-            <!-- <div class="meta">
-              <span class="date">Joined in 2013</span>
-            </div> -->
-            <div class="description">
-              <%= user.books[i].summary.substring(0, 100) %>
-              <a class="ui button" href="/books/<%= user.books[i]._id %>">Read More</a>
+<% if(user.books.length == 0) { %>
+
+  <h3 style="text-align:center"><%= user.username %> hasn't added any books yet.</h3>
+
+<% } else { %>
+
+  <h3 style="text-align:center">Take a look at  <%= user.username %>'s books.</h3>
+  <div style="width: 67%; text-align: center" class="ui container segment">
+    <div style="margin: 0 auto">
+      <div class="ui link cards">
+        <% for(var i=0; i<user.books.length; i++){ %>
+          <div class="ui card" style="cursor:default">
+            <div class="image">
+              <img src="<%= user.books[i].image %>">
+            </div>
+            <div class="content">
+              <a class="header" href="/books/<%= user.books[i]._id %>"><%= user.books[i].title %></a>
+              <!-- <div class="meta">
+                <span class="date">Joined in 2013</span>
+              </div> -->
+              <div class="description">
+                <%= user.books[i].summary.substring(0, 100) %>
+                <a class="ui button" href="/books/<%= user.books[i]._id %>">Read More</a>
+              </div>
+            </div>
+            <div class="extra content">
+                <i class="user icon"></i>
+                <%= user.books[i].author %>
             </div>
           </div>
-          <div class="extra content">
-              <i class="user icon"></i>
-              <%= user.books[i].author %>
-          </div>
-        </div>
-      <% } %>
+        <% } %>
       </div>
-    
+    </div>
   </div>
-</div>
+
+<% } %>
+
 
   
   

@@ -1,7 +1,7 @@
 <% include ../partials/header %>
 
 
-<h1 style="text-align:center">Edit <%= book.title %></h1>
+<h1 style="text-align: center; margin: 4% auto; font-size: 50px">Edit <%= book.title %></h1>
 
 <div class="ui main text container segment">
   <form class="ui form" action="/books/<%= book._id %>?_method=PUT" method="post">

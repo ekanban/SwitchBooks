@@ -24,6 +24,9 @@ router.get("/new", middleware.isLoggedIn, function(req, res){
 //CREATE ROUTE================
 router.post("/", middleware.isLoggedIn, function(req, res){
   var book = req.body.book;
+  if(book.image == ""){
+    book.image = "http://dynamicmediainstitute.org/wp-content/themes/dynamic-media-institute/imagery/default-book.png"
+  }
   // console.log(req.user);
   User.findById(req.user._id, function(err, user){
     if (err) {
