@@ -2,29 +2,35 @@
 
 <h1 style="text-align: center">Books Available For Switching</h1>
 
-<div class="ui link cards">
-<% for(var i=0; i<books.length; i++){ %>
-  <div class="ui card" style="cursor:default">
-    <div class="image">
-      <img src="<%= books[i].image %>">
-    </div>
-    <div class="content">
-      <a class="header" href="/books/<%= books[i]._id %>"><%= books[i].title %></a>
-      <!-- <div class="meta">
-        <span class="date">Joined in 2013</span>
-      </div> -->
-      <div class="description">
-        <%= books[i].summary.substring(0, 100) %>
-        <a class="ui button" href="/books/<%= books[i]._id %>">Read More</a>
-      </div>
-    </div>
-    <div class="extra content">
-        <i class="user icon"></i>
-        <%= books[i].author %>
-    </div>
+<div style="width: 67%; text-align: center" class="ui container segment">
+  <div style="margin: 0 auto">
+    <div class="ui link cards">
+      <% for(var i=0; i<books.length; i++){ %>
+        <div class="ui card" style="cursor:default">
+          <div class="image">
+            <img src="<%= books[i].image %>">
+          </div>
+          <div class="content">
+            <a class="header" href="/books/<%= books[i]._id %>"><%= books[i].title %></a>
+            <!-- <div class="meta">
+              <span class="date">Joined in 2013</span>
+            </div> -->
+            <div class="description">
+              <%= books[i].summary.substring(0, 100) %>
+              <a class="ui button" href="/books/<%= books[i]._id %>">Read More</a>
+            </div>
+          </div>
+          <div class="extra content">
+              <i class="user icon"></i>
+              <%= books[i].author %>
+          </div>
+        </div>
+      <% } %>
+      </div>    
+  
   </div>
-<% } %>
 </div>
+
 
 
 <% include ../partials/footer %>
