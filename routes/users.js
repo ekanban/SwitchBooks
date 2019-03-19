@@ -107,7 +107,7 @@ router.get("/users/:userId/switchbooks/:bookId/:offeredBookId/confirm", middlewa
                       from: 'switchbooks101@gmail.com',
                       to: user.email,
                       subject: 'Switch request',
-                      text: `${req.user.username} sent you a switch request for ${askedBook.title}! He's willing to offer ${offeredBook.title} in return. Visit: https://www.google.com`
+                      text: `${req.user.username} sent you a switch request for ${askedBook.title}! He's willing to offer ${offeredBook.title} in return. Visit: https://switchbooks.herokuapp.com to take a look.`
                     };
 
                     transporter.sendMail(mailOptions, function(error, info){
