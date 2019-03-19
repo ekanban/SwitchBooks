@@ -23,7 +23,7 @@
       <a class="item" href="/register">Sign Up</a>
       <a class="item" href="/login">Login</a>
     <% } else { %>
-      <a class="item" href="#">Signed is as <%= currentUser.username %></a>
+      <a class="item" href="/users/<%= currentUser._id %>">Signed is as <%= currentUser.username %></a>
       <a class="item" href="/logout">Logout</a>
     <% } %>
 

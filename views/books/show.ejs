@@ -43,7 +43,7 @@
                 <img src="/images/avatar/small/matt.jpg">
               </a>
               <div class="content">
-                <a class="author"><%= book.comments[i].author.username %></a>
+                <a class="author" href="/users/<%= book.comments[i].author.id %>"><%= book.comments[i].author.username %></a>
                 <!-- <div class="metadata">
                   <span class="date">Today at 5:42PM</span>
                 </div> -->

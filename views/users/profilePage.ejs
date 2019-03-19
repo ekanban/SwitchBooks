@@ -1,12 +1,29 @@
 <% include ../partials/header %>
 
-<h1><%= user.username %></h1>
+<h1 style="text-align:center">Welcome to <%= user.username %>'s profile page!</h1>
 
-<% for(var i=0; i<user.books.length; i++){ %>
-  <h2><%= user.books[i].title %></h2>
-  <h4><%= user.books[i].author %></h4>
-  <img src="<%= user.books[i].image %>" alt="">
-  <p><%= user.books[i].summary.substring(0, 100) %>...</p>
-
-  <a href="/books/<%= user.books[i]._id %>">Read More</a>
-<% } %>
+<div class="ui link cards">
+  <% for(var i=0; i<user.books.length; i++){ %>
+    <div class="ui card" style="cursor:default">
+      <div class="image">
+        <img src="<%= user.books[i].image %>">
+      </div>
+      <div class="content">
+        <a class="header" href="/books/<%= user.books[i]._id %>"><%= user.books[i].title %></a>
+        <!-- <div class="meta">
+          <span class="date">Joined in 2013</span>
+        </div> -->
+        <div class="description">
+          <%= user.books[i].summary.substring(0, 100) %>
+          <a class="ui button" href="/books/<%= user.books[i]._id %>">Read More</a>
+        </div>
+      </div>
+      <div class="extra content">
+          <i class="user icon"></i>
+          <%= user.books[i].author %>
+      </div>
+    </div>
+  <% } %>
+  </div>
+  
+  
