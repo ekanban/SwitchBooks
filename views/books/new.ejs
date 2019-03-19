@@ -1,15 +1,28 @@
 <% include ../partials/header %>
 
 
-<h1>Enter a new book</h1>
+<h1 style="text-align:center">Add a new book</h1>
 
-<form class="" action="/books" method="post">
-  <input type="text" name="book[title]" placeholder="Title">
-  <input type="text" name="book[author]" placeholder="Author">
-  <input type="text" name="book[image]" placeholder="Image URL">
-  <textarea name="book[summary]" placeholder="Summary"></textarea>
-  <button>Submit</button>
-
-</form>
+<div class="ui main text container segment">
+  <form class="ui form" action="/books" method="post">
+    <div class="field">
+      <label>Title</label>
+      <input name="book[title]" placeholder="Enter title of the book" type="text">
+    </div>
+    <div class="field">
+      <label>Author</label>
+      <input name="book[author]" placeholder="Enter author of the book" type="text">
+    </div>
+    <div class="field">
+      <label>Image URL</label>
+      <input name="book[image]" placeholder="Enter URL of book's image" type="text">
+    </div>
+    <div class="field">
+      <label>Summary</label>
+      <textarea name="book[summary]" placeholder="Enter a brief summary of the book"></textarea>
+    </div>
+    <button class="ui button" type="submit">Submit</button>
+  </form>
+</div>
 
 <% include ../partials/footer %>

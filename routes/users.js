@@ -123,14 +123,14 @@ router.get("/users/:userId/switchbooks/:bookId/:offeredBookId/confirm", middlewa
     }})}})}  })})
 
 //SENT DEALS
-router.get("/users/:userId/sentDeals", function(req, res){
+router.get("/users/:userId/sentDeals", middleware.isLoggedIn, function(req, res){
   User.findById(req.params.userId, function(err, user){
     res.render("users/sentDeal", {user: user})
   })
 })
 
 //RECEIVED DEALS
-router.get("/users/:userId/receivedDeals", function(req, res){
+router.get("/users/:userId/receivedDeals", middleware.isLoggedIn, function(req, res){
   User.findById(req.params.userId, function(err, user){
     res.render("users/receivedDeal", {user: user})
   })

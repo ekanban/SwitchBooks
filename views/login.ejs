@@ -1,11 +1,19 @@
 <% include partials/header %>
 
-<h1>Login</h1>
+<h1 style="text-align:center">Login</h1>
 
-<form class="" action="/login" method="post">
-  <input type="text" name="username" placeholder="Username">
-  <input type="password" name="password" placeholder="Password">
-  <button>Submit</button>
-</form>
+<div class="ui main text container segment">
+  <form class="ui form" action="/login" method="post">
+    <div class="field">
+      <label>Username</label>
+      <input name="username" placeholder="Enter username" type="text">
+    </div>
+    <div class="field">
+      <label>Password</label>
+      <input name="password" placeholder="Enter password" type="password">
+    </div>
+    <button class="ui button" type="submit">Submit</button>
+  </form>
+</div>
 
 <% include partials/footer %>

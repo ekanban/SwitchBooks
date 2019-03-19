@@ -1,15 +1,29 @@
 <% include ../partials/header %>
 
 
-<h1>Edit <%= book.title %></h1>
+<h1 style="text-align:center">Edit <%= book.title %></h1>
 
-<form class="" action="/books/<%= book._id %>?_method=PUT" method="post">
-  <input type="text" name="book[title]" value="<%= book.title %>">
-  <input type="text" name="book[author]" value="<%= book.author %>">
-  <input type="text" name="book[image]" value="<%= book.image %>">
-  <textarea name="book[summary]"><%= book.summary %></textarea>
-  <button>Submit</button>
+<div class="ui main text container segment">
+  <form class="ui form" action="/books/<%= book._id %>?_method=PUT" method="post">
+    <div class="field">
+      <label>Title</label>
+      <input name="book[title]" value="<%= book.title %>" type="text">
+    </div>
+    <div class="field">
+      <label>Author</label>
+      <input name="book[author]" value="<%= book.author %>" type="text">
+    </div>
+    <div class="field">
+      <label>Image URL</label>
+      <input name="book[image]" value="<%= book.image %>" type="text">
+    </div>
+    <div class="field">
+      <label>Summary</label>
+      <textarea name="book[summary]"><%= book.summary %></textarea>
+    </div>
+    <button class="ui button" type="submit">Submit</button>
+  </form>
+</div>
 
-</form>
 
 <% include ../partials/footer %>

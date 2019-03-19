@@ -1,12 +1,23 @@
 <% include partials/header %>
 
-<h1>Sign Up</h1>
+<h1 style="text-align:center">Sign Up</h1>
 
-<form class="" action="/register" method="post">
-  <input type="text" name="username" placeholder="Username">
-  <input type="text" name="email" placeholder="Email">
-  <input type="password" name="password" placeholder="Password">
-  <button>Submit</button>
-</form>
+<div class="ui main text container segment">
+  <form class="ui form" action="/register" method="post">
+    <div class="field">
+      <label>Set Username</label>
+      <input name="username" placeholder="Set username" type="text">
+    </div>
+    <div class="field">
+      <label>E-mail</label>
+      <input name="email" placeholder="Enter email" type="email">
+    </div>
+    <div class="field">
+      <label>Set Password</label>
+      <input name="password" placeholder="Set password" type="password">
+    </div>
+    <button class="ui button" type="submit">Submit</button>
+  </form>
+</div>
 
 <% include partials/footer %>

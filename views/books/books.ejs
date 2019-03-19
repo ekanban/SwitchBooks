@@ -4,12 +4,12 @@
 
 <div class="ui link cards">
 <% for(var i=0; i<books.length; i++){ %>
-  <div class="ui card">
+  <div class="ui card" style="cursor:default">
     <div class="image">
       <img src="<%= books[i].image %>">
     </div>
     <div class="content">
-      <a class="header"><%= books[i].title %></a>
+      <a class="header" href="/books/<%= books[i]._id %>"><%= books[i].title %></a>
       <!-- <div class="meta">
         <span class="date">Joined in 2013</span>
       </div> -->
