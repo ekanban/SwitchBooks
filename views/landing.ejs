@@ -1,12 +1,60 @@
-<% include partials/header %>
-</header> %>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>SwitchBooks</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css">
+    <link rel="stylesheet" href="/stylesheets/main.css">
+  </head>
+  <body style="background-image: url('https://theboar.org/wp-content/uploads/2018/12/brandi-redd-595063-unsplash-compressor-e1544307333360.jpg'); background-repeat: no-repeat; background-position: center; background-size:cover">
+
+    <div class="ui inverted menu">
+  <a class="item" href="/">SwitchBooks</a>
+
+  <a class="item" href="/books/new">Add A Book</a>
+  <% if(currentUser){ %>
+    <a class="item" href="/users/<%= currentUser._id %>/sentDeals">Sent Deals</a>
+    <a class="item" href="/users/<%= currentUser._id %>/receivedDeals">Received Deals</a>
+  <% } %>
+
+  <div class="right menu">
+    <% if(!currentUser){ %>
+      <a class="item" href="/register">Sign Up</a>
+      <a class="item" href="/login">Login</a>
+    <% } else { %>
+      <a class="item" href="/users/<%= currentUser._id %>">Signed is as <%= currentUser.username %></a>
+      <a class="item" href="/logout">Logout</a>
+    <% } %>
+
+  </div>
+</div>
+
+<div class="ui container">
+  <% if(success && success.length>0){ %>
+    <div class="ui success message">
+      <div class="header">
+        <%= success %>
+      </div>
+    </div>
+  <% } %>
+  <% if(negative && negative.length>0){ %>
+    <div class="ui negative message">
+      <div class="header">
+        <%= negative %>
+      </div>
+    </div>
+  <% } %>
+</div>
+
+<div style="font-size: 3rem; margin-top: 13%; margin-left: 5%;">
+    <h1 style="color: white">Welcome to SwitchBooks!</h1>
+    <h3 style="color: white">Find a home for your used books and get someone else's books in return.</h3>
+    <a class="ui inverted button" style="margin-top:10px; font-size: 1.3rem; color: #0a1527" href="/books"><strong> View The Books</strong> <i class="ui right arrow icon"></i></a>
+</div>
 
 
-<h1>Welcome to SwitchBooks!</h1>
 
 
 
+    
 
-<a href="/books">View The Books</a>
-
-<% include partials/footer %>
