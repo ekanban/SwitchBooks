@@ -11,8 +11,8 @@ You may view the requests that you've sent or recieved in the navbar while you'r
 
 It's very simple to get SwitchBooks up and running on your local machine!
 
-1. You need to have Node installed on your local machine. You may get it [https://nodejs.org/en/](here).
-2. You need to be running a Mongo service on your local machine before running this app. You may get MongoDB [https://docs.mongodb.com/v3.2/administration/install-community/](here).
+1. You need to have Node installed on your local machine. You may get it [here](https://nodejs.org/en/).
+2. You need to be running a Mongo service on your local machine before running this app. You may get MongoDB [here](https://docs.mongodb.com/v3.2/administration/install-community/).
 3. Clone the project and run these following commands:
 
 ```
