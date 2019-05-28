@@ -1,5 +1,7 @@
 var mongoose = require("mongoose");
 
+
+
 var bookSchema = new mongoose.Schema({
   title: String,
   author: String,
@@ -19,6 +21,10 @@ var bookSchema = new mongoose.Schema({
     username: String
   }
 })
+
+// bookSchema.plugin(allPlugins);
+
+
 
 // bookSchema.pre('save', function(next) {
 //   console.log("Coming from pre.save middleware. Book Saved");

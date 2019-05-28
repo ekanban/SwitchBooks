@@ -1,10 +1,14 @@
 var express = require("express");
+
+var allPlugins = require("./models/plugins");
+var mongoose = require("mongoose");
+mongoose.plugin(allPlugins);
+
 var app = express();
 var bodyParser = require("body-parser");
 var passport = require("passport");
 var LocalStrategy = require("passport-local");
 var expressSession = require("express-session");
-var mongoose = require("mongoose");
 var methodOverride = require("method-override");
 var flash = require("connect-flash");
 
@@ -13,8 +17,11 @@ var commentRoutes = require("./routes/comments.js");
 var indexRoutes = require("./routes/index.js");
 var usersRoutes = require("./routes/users.js");
 
+
 mongoose.connect("mongodb://localhost/switchbooks");
 // mongoose.connect("mongodb://acebansal:barter10@ds153890.mlab.com:53890/barter");
+
+
 
 
 var Book = require("./models/books.js");
