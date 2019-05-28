@@ -82,7 +82,7 @@ router.put("/:id", middleware.checkBookOwnership, function(req, res){
 
 //DELETE ROUTE===============
 router.delete("/:id", middleware.checkBookOwnership, function(req, res){
-  Book.findByIdAndDelete(req.params.id, function(err){
+  Book.findOneAndRemove(req.params.id, function(err){
     if(err){
       console.log("error on the delete route");
     } else{
