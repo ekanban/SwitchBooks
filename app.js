@@ -17,7 +17,6 @@ var commentRoutes = require("./routes/comments.js");
 var indexRoutes = require("./routes/index.js");
 var usersRoutes = require("./routes/users.js");
 
-
 mongoose.connect("mongodb://localhost/switchbooks");
 // mongoose.connect("mongodb://acebansal:barter10@ds153890.mlab.com:53890/barter");
 
